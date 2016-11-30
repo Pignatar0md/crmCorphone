@@ -24,6 +24,15 @@ if (isset($_GET['file'])) {
         $content_type = 'text/csv';
         BDToCsvCampFinished($result, '');
         download_file('/tmp/processedCsvFileManualCalls.csv', 'processedCsvFileManualCalls.csv', $content_type);
+    } elseif ($_GET['task'] == 'reciclar') {
+        $m_cmp = new m_cmp('infoBases');
+        $arr[0] = isset($_GET['contacto']) ? $_GET['contacto'] : '';
+        $arr[1] = isset($_GET['resulContacto']) ? $_GET['resulContacto'] : '';
+        $arr[2] = isset($_GET['listId']) ? $_GET['listId'] : '';
+        $result = $m_cmp->getRecycledData($arr);
+        $content_type = 'text/csv';
+        createRecycledCsv($result, $arr[2]);
+        echo 'recycledDB-lista_' . $arr[2] . '.csv';
     } else {
         $content_type = 'application/octet-stream';
         $id = $enlace . '-all.mp3';
@@ -86,6 +95,18 @@ function BDToCsvCampFinished($resultado, $listid = NULL) {
     }
 }
 
+function createRecycledCsv($result, $listid) {
+    $archivo = fopen("/var/www/html/cargadebases/recycledDB-lista_" . $listid . ".csv", "w");
+    $encab = ',id_lista,id' . PHP_EOL;
+    fwrite($archivo, $encab);
+    foreach ($result as $row) {
+        $cad .= $row['tel'] . ',' . $row['id_lista'] . ',' . $row['id'] . PHP_EOL;
+        fwrite($archivo, $cad);
+            $cad = '';
+    }
+    fclose($archivo);
+}
+
 function download_file($archivo, $downloadfilename = null, $ctype) {
     if (file_exists($archivo)) {
         $downloadfilename = $downloadfilename !== null ? $downloadfilename : basename($archivo);
@@ -102,7 +123,7 @@ function download_file($archivo, $downloadfilename = null, $ctype) {
         readfile($archivo);
         exit;
     } else {
-        echo $archivo;
+        echo 'no existe archivo '.$archivo;
     }
 }
 

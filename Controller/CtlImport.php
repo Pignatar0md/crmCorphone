@@ -67,7 +67,10 @@ if ($getCmp) {
                   &nbsp;
                   <a title='Descargar' href='Controller/download.php?file=processedCsvFile&listid=" . $row['id'] . "&task=processed'><img alt='descarga' src='bootstrap/img/download.png' width='20' height='20'/></a>
                       &nbsp;
-		  <a href='#' onclick='return false;' title='Eliminar'><img id='delete' alt='eliminar' src='bootstrap/img/delete.jpg' width='20' height='20' value='" . $row['id'] . "'/></a>
+		  <!--<a href='Controller/download.php?file=recycledDbCsv&task=RDB' title='reciclar'><img alt='reciclado' src='bootstrap/img/recycle2.jpg' width='20' height='20'/></a>-->
+                  <a href='#' onclick='return false;' title='Reciclar'><img id='recycle' alt='reciclado' src='bootstrap/img/recycle2.jpg' width='20' height='20' value='" . $row['id'] . "'/></a>
+                      &nbsp;
+                  <a href='#' onclick='return false;' title='Eliminar'><img id='delete' alt='eliminar' src='bootstrap/img/delete.jpg' width='20' height='20' value='" . $row['id'] . "'/></a>
                   </td></tr>";
         $i++;
     }

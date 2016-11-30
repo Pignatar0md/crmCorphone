@@ -5,10 +5,10 @@ include_once 'Utils.php';
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++clic2dial
 session_name('elastixSession');
 session_start();
-require(ECCP);
+//require(ECCP);
 
 $lAgent = str_replace('Agent/', '', $_SESSION['callcenter']['agente']);
-$oECCP = new ECCP();
+//$oECCP = new ECCP();
 $pausa = isset($_POST['pausa']) ? $_POST['pausa'] : '';
 $record = isset($_GET['grabacion']) ? $_GET['grabacion'] : '';
 $campaign = isset($_GET['campaign']) ? $_GET['campaign'] : '';

@@ -10,6 +10,46 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/miJavascript.js"></script>
         <div class="container">
+            <div class="modal fade" id="myModalRecycle" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Reciclado de datos</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    Contacto
+                                    <select class="form-control" id="contacto">
+                                        <option value='1'>Si</option>
+                                        <option value='2'>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    Resultado
+                                    <select class="form-control" id="resulContacto">
+                                        <option value='NULL'>Seleccionar..</option>
+                                        <option value='conforme actual'>Conforme con lo actual</option>
+                                        <option value='no conforme serv. ofrec.'>No conforme serv. ofrec.</option>
+                                        <option value='linea pymes'>Linea PyMes</option>
+                                        <option value='agenda gral.'>Agenda grupal/gral.</option>
+                                        <option value='cliente personal'>Ya es cliente Personal</option>
+                                        <option value='acepta'>Acepta</option>
+                                        <option value='pendiente'>Pendiente</option>
+                                        <option value='no mas ofertas'>No mas ofertas</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="reciclar" class="btn btn-primary" data-dismiss="modal">Reciclar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br>
             <div class="row">
                 <div class="col-lg-1 col-lg-offset-10">
