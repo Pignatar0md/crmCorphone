@@ -26,13 +26,41 @@ if (isset($_GET['file'])) {
         download_file('/tmp/processedCsvFileManualCalls.csv', 'processedCsvFileManualCalls.csv', $content_type);
     } elseif ($_GET['task'] == 'reciclar') {
         $m_cmp = new m_cmp('infoBases');
-        $arr[0] = isset($_GET['contacto']) ? $_GET['contacto'] : '';
-        $arr[1] = isset($_GET['resulContacto']) ? $_GET['resulContacto'] : '';
-        $arr[2] = isset($_GET['listId']) ? $_GET['listId'] : '';
+        if ($_GET['nocontesta']) {
+            $arr[1] = "nocontesta";
+        } 
+        if ($_GET['ocupado']) {
+            $arr[1] = "ocupado";
+        } 
+        if ($_GET['notitular']) {
+            $arr[2] = "notitular";
+        } 
+        if ($_GET['conforme']) {
+            $arr[3] = 'conforme actual';
+        } 
+        if ($_GET['noconforme']) {
+            $arr[4] = 'no conforme serv. ofrec.';
+        } 
+        if ($_GET['lineapymes']) {
+            $arr[5] = 'linea pymes';
+        } 
+        if ($_GET['agendagral']) {
+            $arr[6] = 'agenda gral.';
+        } 
+        if ($_GET['pendiente']) {
+            $arr[7] = 'pendiente';
+        } 
+        if ($_GET['contestador']) {
+            $arr[8] = 'contestadorfax';
+        }
+        $arr[0] = isset($_GET['listId']) ? $_GET['listId'] : '';
         $result = $m_cmp->getRecycledData($arr);
         $content_type = 'text/csv';
-        createRecycledCsv($result, $arr[2]);
-        echo 'recycledDB-lista_' . $arr[2] . '.csv';
+        createRecycledCsv($result, $arr[0]);
+        echo 'recycledDB-lista_' . $arr[0] . '.csv';
+    } elseif ($_GET['task'] == 'download') {
+        $content_type = 'text/' . $_GET['contentType'];
+        download_file('/var/www/html/cargadebases/' . $_GET['file'], $_GET['file'], $content_type);
     } else {
         $content_type = 'application/octet-stream';
         $id = $enlace . '-all.mp3';
@@ -102,7 +130,7 @@ function createRecycledCsv($result, $listid) {
     foreach ($result as $row) {
         $cad .= $row['tel'] . ',' . $row['id_lista'] . ',' . $row['id'] . PHP_EOL;
         fwrite($archivo, $cad);
-            $cad = '';
+        $cad = '';
     }
     fclose($archivo);
 }
@@ -121,9 +149,10 @@ function download_file($archivo, $downloadfilename = null, $ctype) {
         ob_clean();
         flush();
         readfile($archivo);
+        unlink($archivo);
         exit;
     } else {
-        echo 'no existe archivo '.$archivo;
+        echo 'no existe archivo ' . $archivo;
     }
 }
 

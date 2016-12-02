@@ -19,28 +19,34 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-5">
-                                    Contacto
-                                    <select class="form-control" id="contacto">
-                                        <option value='1'>Si</option>
-                                        <option value='2'>No</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    Resultado
-                                    <select class="form-control" id="resulContacto">
-                                        <option value='NULL'>Seleccionar..</option>
-                                        <option value='conforme actual'>Conforme con lo actual</option>
-                                        <option value='no conforme serv. ofrec.'>No conforme serv. ofrec.</option>
-                                        <option value='linea pymes'>Linea PyMes</option>
-                                        <option value='agenda gral.'>Agenda grupal/gral.</option>
-                                        <option value='cliente personal'>Ya es cliente Personal</option>
-                                        <option value='acepta'>Acepta</option>
-                                        <option value='pendiente'>Pendiente</option>
-                                        <option value='no mas ofertas'>No mas ofertas</option>
-                                    </select>
+                                <div class="col-md-10 col-lg-offset-1">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="contestador" value="contestadorfax">Contestador/Fax</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="nocontesta" value="nocontesta">No contesta</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="ocupado" value="ocupado">Ocupado</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="notitular" value="notitular">No titular</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="conforme" value="conforme actual">Conforme con lo actual</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="noconforme" value="no conforme serv. ofrec.">No conforme serv. ofrec.</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="lineapymes" value="linea pymes">Linea PyMes</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="agendagral" value="agenda gral.">Agenda grupal/gral.</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="pendiente" value="pendiente">Pendiente</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

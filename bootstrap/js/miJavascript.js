@@ -37,13 +37,35 @@ $(function () {
     $("#reciclar").click(function () {
         var contacto = $("#contacto option:selected").val();
         var resulContacto = $("#resulContacto option:selected").val();
+        var datos = 'task=reciclar&file=1&listId=' + listId;
+        
+        if($("#contestador").prop('checked')){
+            datos += '&contestador=true';
+        } if($("#nocontesta").prop('checked')){
+            datos += '&nocontesta=true';
+        } if($("#ocupado").prop('checked')){
+            datos += '&ocupado=true';
+        } if($("#notitular").prop('checked')){
+            datos += '&notitular=true';
+        } if($("#conforme").prop('checked')){
+            datos += '&conforme=true';
+        } if($("#noconforme").prop('checked')){
+            datos += '&noconforme=true';
+        } if($("#lineapymes").prop('checked')){
+            datos += '&lineapymes=true';
+        } if($("#agendagral").prop('checked')){
+            datos += '&agendagral=true';
+        } if($("#pendiente").prop('checked')){
+            datos += '&pendiente=true';
+        }
+        
         $.ajax({
             type: "GET",
             url: "Controller/download.php",
             dataType: "html",
-            data: "task=reciclar&file=1&contacto=" + contacto + "&resulContacto=" + resulContacto + "&listId=" + listId,
+            data: datos,
             success: function (msg) {
-                window.location.href = msg;
+                window.location = 'Controller/download.php?file='+msg+"&task=download&contentType=csv";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log("Error al ejecutar => " + textStatus + " - " + errorThrown);

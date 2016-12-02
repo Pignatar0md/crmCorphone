@@ -500,14 +500,34 @@ class m_cmp {
     }
 
     function getRecycledData($Arg) {
-        $sql = "select tel, l.id_lista, id_reg_lista as id from Registro_Listas rl, lista_" . $Arg[2] . " l 
-        where contacto = :idc and rl.id_lista = :idl and resul_contacto = :rescont and l.id = rl.id_reg_lista";
+        $sql = "select tel, l.id_lista, id_reg_lista as id from Registro_Listas rl, lista_" . $Arg[0] . 
+                " l 
+        where l.id = rl.id_reg_lista and resul_contacto IN  (";
+        if($Arg[1]) {
+            $sql .= "'$Arg[1]',";
+        } if ($Arg[2]) {
+            $sql .= "'$Arg[2]',";
+        } if ($Arg[3]) {
+            $sql .= "'$Arg[3]',";
+        } if ($Arg[4]) {
+            $sql .= "'$Arg[4]',";
+        } if ($Arg[5]) {
+            $sql .= "'$Arg[5]',";
+        } if ($Arg[6]) {
+            $sql .= "'$Arg[6]',";
+        } if ($Arg[7]) {
+            $sql .= "'$Arg[7]',";
+        } if ($Arg[8]) {
+            $sql .= "'$Arg[8]',";
+        } if ($Arg[9]) {
+            $sql .= "'$Arg[9]',";
+        }
+        $sql = substr($sql, 0,-1);
+        $sql .=")";
         try {
             $cnn = new PDO($this->argPdo, MySQL_USER, MySQL_PASS);
             $query = $cnn->prepare($sql);
-            $query->bindParam(":idc", $Arg[0]);
-            $query->bindParam(":rescont", $Arg[1]);
-            $query->bindParam(":idl", $Arg[2]);
+            $query->bindParam(":idl", $Arg[0]);
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             $cnn = NULL;
