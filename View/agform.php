@@ -18,7 +18,7 @@ include_once '../Controller/CtlAgInfo.php';
             <div class="row">
                 <br>
                 <div class="col-md-1 col-md-offset-9">
-                    <img src="../bootstrap/img/corphone.png" height="80" width="190"/>
+                    <img src="../bootstrap/img/LogoFTS.png" height="80" width="190"/>
                 </div>
             </div>
             <form>
@@ -89,7 +89,7 @@ include_once '../Controller/CtlAgInfo.php';
 		 	    <div class="col-md-1">
                                 <br>
                                 <label for="cuit">Lista: <em style="color: red"><?php if($idLista=='{id_lista}') { echo 'manual'; } else { echo $idLista; } ?></em></label>
-                            </div> 
+                            </div>
                             <div class="col-lg-1 col-lg-offset-1">
                                 <br>
                                 <button type="button" class="btn btn-warning btn-xs"><img id="manualcall" src="../bootstrap/img/DialPhone2.png" height="32" width="30"/></button>

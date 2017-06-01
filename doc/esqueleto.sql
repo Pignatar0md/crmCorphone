@@ -67,7 +67,7 @@ CREATE TABLE `Registro_Listas` (
   `grabac` varchar(100) default NULL,
   `agente` varchar(45) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
