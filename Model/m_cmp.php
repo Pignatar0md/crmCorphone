@@ -270,7 +270,7 @@ class m_cmp {
     }
 
     function traerDatosClientes($arrIds) {
-        $sql = "select id,tel,nombre,apellido,dni,direccion,codpostal,tel_alt,email from " . $arrIds[0] . " "
+        $sql = "select id,tel,nombre,apellido,dni,direccion,codpostal,email from " . $arrIds[0] . " "
                 . "where tel = '" . $arrIds[1] . "'";
         try {
             $cnn = new Connection("infoBases");
@@ -500,8 +500,8 @@ class m_cmp {
     }
 
     function getRecycledData($Arg) {
-        $sql = "select tel, l.id_lista, id_reg_lista as id from Registro_Listas rl, lista_" . $Arg[0] . 
-                " l 
+        $sql = "select tel, l.id_lista, id_reg_lista as id from Registro_Listas rl, lista_" . $Arg[0] .
+                " l
         where l.id = rl.id_reg_lista and resul_contacto IN  (";
         if($Arg[1]) {
             $sql .= "'$Arg[1]',";
