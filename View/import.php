@@ -11,12 +11,12 @@ include '../Controller/CtlImport.php';
     <body>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-        
+
         <div class="container">
             <br>
             <div class="row">
                 <div class="col-lg-1 col-lg-offset-10">
-                    <img src="../bootstrap/img/corphone.png" height="80" width="190"/>
+                    <img src="../bootstrap/img/LogoFTS.png" height="80" width="190"/>
                 </div>
                 <div class="col-lg-12">
                     <?php echo "<a href='../index.php'>Home</a>&nbsp;/&nbsp;Configuracion de datos"; ?>
@@ -30,7 +30,7 @@ include '../Controller/CtlImport.php';
                 <input type="hidden" name="nomBase" value="<?php echo $nomBase ?>"/>
                 <input type="hidden" name="cdadFilas" value="<?php echo $cdadFilas ?>"/>
                 <input type="hidden" name="cdadColum" value="<?php echo $cdadColum ?>"/>
-                <div class="row">                
+                <div class="row">
                     <div class="col-lg-12">
                         <h4 style="color: #48722c">Encabezados de columnas de .csv</h4>
                         <?php

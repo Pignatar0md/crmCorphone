@@ -11,27 +11,11 @@ $lAgent = str_replace('Agent/', '', $_SESSION['callcenter']['agente']);
 $pausa = isset($_POST['pausa']) ? $_POST['pausa'] : '';
 $record = isset($_GET['grabacion']) ? $_GET['grabacion'] : '';
 $campaign = isset($_GET['campaign']) ? $_GET['campaign'] : '';
-if ($pausa) {
-    /*try {
-        $oConexion = $oECCP->connect('localhost', 'agentconsole', 'agentconsole');
-        if (isset($oConexion->failure))
-            die('Failed to connect to ECCP - ' . $oConexion->failure->message . "\n");
-        $oECCP->setAgentNumber('Agent/' . $lAgent);
-        $oECCP->setAgentPass($lAgent);
-        $oResultado = $oECCP->pauseagent(3);
-        $oECCP->disconnect();
-    } catch (Exception $e) {
-        print_r($e);
-        print_r($oECCP->getParseError());
-    }*/
-}
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $idLista = isset($_GET['id_lista']) ? $_GET['id_lista'] : '';
 $teL = isset($_GET['tel']) ? $_GET['tel'] : '';
-//$record = isset($_GET['grabacion']) ? $_GET['grabacion'] : '';
-//$campaign = isset($_GET['campaign']) ? $_GET['campaign'] : '';
-//$agente = $_SESSION['callcenter']['agente'];
 $nombre = $apell = $dni = $direcc = $codpostal = $tel = $telalt = $email = $idcontacto = '';
 if ($idLista && $teL) {
     $arrIds[0] = "lista_" . $idLista;

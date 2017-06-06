@@ -18,7 +18,7 @@ include_once '../Controller/CtlLeadSearch.php';
             <div class="row">
                 <br>
                 <div class="col-lg-1 col-lg-offset-10">
-                    <img src="../bootstrap/img/corphone.png" height="80" width="190"/>
+                    <img src="../bootstrap/img/LogoFTS.png" height="80" width="190"/>
                 </div>
             </div>
             <form>

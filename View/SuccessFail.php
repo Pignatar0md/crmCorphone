@@ -17,7 +17,7 @@ include '../Controller/CtlSave.php';
             <br>
             <div class="row">
                 <div class="col-lg-1 col-lg-offset-10">
-                    <img src="../bootstrap/img/corphone.png" height="80" width="190"/>
+                    <img src="../bootstrap/img/LogoFTS.png" height="80" width="190"/>
                 </div>
                 <div class="col-lg-12">
                     <?php echo "<a href='../index.php'>Home</a>&nbsp;/&nbsp;Carga de Csv"; ?>
